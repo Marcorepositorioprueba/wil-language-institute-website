@@ -118,27 +118,27 @@ main {
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
-    display: flex; /* Use flexbox for header content */
-    justify-content: space-between; /* Space out logo and nav/toggle */
-    align-items: center; /* Vertically align items */
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 .main-header .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 10px 20px;
-    display: flex; /* Use flexbox for container content */
-    justify-content: space-between; /* Space out logo and nav/toggle */
-    align-items: center; /* Vertically align items */
-    width: 100%; /* Ensure container takes full width */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 .main-header .logo {
     position: relative;
     display: inline-block;
-    margin-bottom: 0; /* Remove bottom margin for flex alignment */
+    margin-bottom: 0;
 }
 .main-header .logo img {
-    max-height: 100px; /* Adjusted for better mobile fit */
+    max-height: 100px;
     width: auto;
     max-width: 100%;
 }
@@ -146,41 +146,45 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 0; /* Remove bottom padding for flex alignment */
+    padding-bottom: 0;
 }
 .menu-toggle {
-    display: none; /* Hidden by default on large screens */
+    display: none;
     background: none;
     border: none;
-    color: #003366; /* Color for hamburger icon */
+    color: #003366; /* Dark blue for hamburger icon */
     font-size: 2rem;
     cursor: pointer;
     padding: 10px;
+    z-index: 1000; /* Ensure it's above other content */
 }
 
 @media (max-width: 768px) {
     .main-header {
-        padding: 10px 20px; /* Adjust padding for mobile */
+        padding: 10px 20px;
     }
     .main-header .container {
-        flex-wrap: nowrap; /* Prevent wrapping in container on mobile */
+        flex-wrap: nowrap;
     }
     .main-nav {
-        display: none; /* Hidden by default on small screens */
+        display: none;
         flex-direction: column;
         width: 100%;
-        background-color: rgba(255, 255, 255, 0.95);
+        background-color: rgba(255, 255, 255, 0.98); /* More opaque background */
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         position: absolute;
-        top: 100%; /* Position below the header */
+        top: 100%;
         left: 0;
         padding: 10px 0;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        z-index: 999; /* Ensure menu is above other content */
+        z-index: 998; /* Below menu-toggle but above content */
+        transform: translateY(-100%); /* Start off-screen */
+        transition: transform 0.3s ease-out; /* Smooth transition */
     }
     .main-nav.active {
-        display: flex; /* Show when active */
+        display: flex;
+        transform: translateY(0); /* Slide in */
     }
     .main-nav a {
         margin: 10px 0;
@@ -188,13 +192,19 @@ main {
         width: 100%;
         text-align: center;
         border-bottom: 1px solid #eee;
-        color: #003366; /* Dark text for mobile menu */
+        color: #003366;
     }
     .main-nav a:last-child {
-        border-bottom: none; /* No border for the last item */
+        border-bottom: none;
     }
     .menu-toggle {
-        display: block; /* Show hamburger menu */
+        display: block;
+    }
+
+    /* Video size adjustment for mobile */
+    .video-container {
+        max-width: 95% !important; /* Make video wider on mobile */
+        margin: 20px auto !important; /* Adjust margin */
     }
 }
 

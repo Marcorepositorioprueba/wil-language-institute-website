@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instituto Wilhelm Wundt</title>
     <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/main_styles.css"> <!-- Link to main_styles.css -->
     <link rel="stylesheet" href="assets/dynamic_background.css">
-    <link rel="stylesheet" href="assets/text_effects.css">
     <link rel="stylesheet" href="assets/text_effects.css">
 
     <!-- Open Graph / Facebook -->
@@ -24,6 +24,25 @@
     <meta property="twitter:image" content="https://marcorepositorioprueba.github.io/wil-language-institute-website/imagenes/will_transparent.png">
 </head>
 <body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="imagenes/willogo.jpg" alt="Instituto Wilhelm Wundt Logo">
+            </div>
+            <nav class="main-nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="courses.html">Courses</a>
+                <a href="schedule.html">Schedule & Enrollment</a>
+                <a href="student_platform.html">Student Platform</a>
+                <a href="contact.html">Contact</a>
+                <a href="#" class="enroll-button">Enroll Now</a>
+            </nav>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
 
     <div class="hero-container-dynamic">
         <!-- Slides de fondo -->
@@ -75,6 +94,16 @@
             // Iniciar la animación y repetirla
             illuminate();
             setInterval(illuminate, (spans.length * delay) + 4000); // Repetir cada ciclo completo + 4s
+
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', function () {
+                    mainNav.classList.toggle('active');
+                });
+            }
         });
     </script>
 

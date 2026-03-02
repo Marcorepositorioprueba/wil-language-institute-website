@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto Wilhelm Wundt - Courses</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/main_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-image: url('imagenes/analisis_investigacion.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* Overlay blanco más opaco para legibilidad */
+            z-index: -1;
+        }
+        .main-header, .main-footer, .container {
+            position: relative;
+            z-index: 1;
+        }
+        .course-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .course-actions {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .read-more-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .read-more-btn:hover {
+            background-color: #0056b3;
+        }
+        .coming-soon-label {
+            background-color: #6c757d;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .course-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            animation: fadeIn 0.5s;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            position: relative;
+            animation: slideIn 0.5s;
+        }
+        .close-btn {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-btn:hover, .close-btn:focus {
+            color: black;
+        }
+        @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+        @keyframes slideIn { from {transform: translateY(-50px);} to {transform: translateY(0);} }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="../willogo.jpg" alt="Instituto Wilhelm Wundt Logo">
+            </div>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="courses.html" class="active">Courses</a>
+                <a href="schedule.html">Schedule & Enrollment</a>
+                <a href="student_platform.html">Student Platform</a>
+                <a href="contact.html">Contact</a>
+                <a href="#" class="enroll-button">Enroll Now</a>
+            </nav>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="courses-section">
+            <h2>Our Comprehensive Language Programs</h2>
+
+            <div class="language-category">
+                <h3>English Language Programs</h3>
+                <div class="course-list">
+                    <!-- English A1 -->
+                    <div class="course-card">
+                        <h4>English A1: Foundational Principles</h4>
+                        <div class="course-actions">
+                            <button class="read-more-btn" data-modal-id="eng-a1-modal">Read More</button>
+                            <a href="schedule.html" class="enroll-button-small">Enroll Now</a>
+                        </div>
+                    </div>
+                    <!-- English A2 -->
+                    <div class="course-card">
+                        <h4>English A2: Elementary Cognitive Expansion</h4>
+                        <div class="course-actions">
+                            <button class="read-more-btn" data-modal-id="eng-a2-modal">Read More</button>
+                            <span class="coming-soon-label">Coming Soon</span>
+                        </div>
+                    </div>
+                    <!-- English B1 -->
+                    <div class="course-card">
+                        <h4>English B1: Intermediate Applied Communication</h4>
+                        <div class="course-actions">
+                            <button class="read-more-btn" data-modal-id="eng-b1-modal">Read More</button>
+                            <span class="coming-soon-label">Coming Soon</span>
+                        </div>
+                    </div>
+                    <!-- English B2 -->
+                    <div class="course-card">
+                        <h4>English B2: Upper-Intermediate Fluency and Autonomy</h4>
+                        <div class="course-actions">
+                            <button class="read-more-btn" data-modal-id="eng-b2-modal">Read More</button>
+                            <span class="coming-soon-label">Coming Soon</span>
+                        </div>
+                    </div>
+                    <!-- English C1 -->
+                    <div class="course-card">
+                        <h4>English C1: Advanced Linguistic Mastery</h4>
+                        <div class="course-actions">
+                            <button class="read-more-btn" data-modal-id="eng-c1-modal">Read More</button>
+                            <span class="coming-soon-label">Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="language-category">
+                <h3>German Language Programs</h3>
+                <div class="course-list">
+                    <!-- German A1 -->
+                    <div class="course-card">
+                        <h4>German A1: Foundational Immersion</h4>
+                        <div class="course-actions">
+                            <button class="read-more-btn" data-modal-id="ger-a1-modal">Read More</button>
+                            <a href="schedule.html" class="enroll-button-small">Enroll Now</a>
+                        </div>
+                    </div>
+                    <!-- German A2 -->
+                    <div class="course-card">
+                        <h4>German A2: Elementary Structural Development</h4>
+                        <div class="course-actions">
+                            <button class="read-more-btn" data-modal-id="ger-a2-modal">Read More</button>
+                            <span class="coming-soon-label">Coming Soon</span>
+                        </div>
+                    </div>
+                    <!-- German B1 -->
+                    <div class="course-card">
+                        <h4>German B1: Intermediate Strategic Communication</h4>
+                        <div class="course-actions">
+                            <button class="read-more-btn" data-modal-id="ger-b1-modal">Read More</button>
+                            <span class="coming-soon-label">Coming Soon</span>
+                        </div>
+                    </div>
+                    <!-- German B2 -->
+                    <div class="course-card">
+                        <h4>German B2: Upper-Intermediate Advanced Discourse</h4>
+                        <div class="course-actions">
+                            <button class="read-more-btn" data-modal-id="ger-b2-modal">Read More</button>
+                            <span class="coming-soon-label">Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div id="eng-a1-modal" class="course-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h4>English A1: Foundational Principles</h4>
+            <p>Embark on your English language journey with a scientifically structured curriculum focusing on fundamental grammar, essential vocabulary, and practical conversational skills. This program lays the cognitive groundwork for effective communication in everyday contexts.</p>
+            <p><strong>Duration:</strong> 12 Weeks (4 hours/week)</p>
+            <a href="schedule.html" class="enroll-button-small">Enroll Now</a>
+        </div>
+    </div>
+    <div id="eng-a2-modal" class="course-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h4>English A2: Elementary Cognitive Expansion</h4>
+            <p>Building upon foundational knowledge, this program expands linguistic and cognitive capacities, enhancing vocabulary and improving fluency in increasingly complex communicative scenarios. Emphasis is placed on structured language processing.</p>
+            <p><strong>Duration:</strong> 12 Weeks (4 hours/week)</p>
+            <span class="coming-soon-label">Coming Soon</span>
+        </div>
+    </div>
+    <div id="eng-b1-modal" class="course-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h4>English B1: Intermediate Applied Communication</h4>
+            <p>Develop robust confidence in a broader spectrum of situations, including academic and professional environments. This program integrates practical communication strategies with theoretical linguistic understanding, fostering adaptive language use.</p>
+            <p><strong>Duration:</strong> 14 Weeks (4 hours/week)</p>
+            <span class="coming-soon-label">Coming Soon</span>
+        </div>
+    </div>
+    <div id="eng-b2-modal" class="course-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h4>English B2: Upper-Intermediate Fluency and Autonomy</h4>
+            <p>Achieve a high degree of linguistic fluency and spontaneous expression, enabling effective and nuanced communication with native speakers. This program refines advanced grammatical structures and expands lexical breadth for sophisticated discourse.</p>
+            <p><strong>Duration:</strong> 14 Weeks (4 hours/week)</p>
+            <span class="coming-soon-label">Coming Soon</span>
+        </div>
+    </div>
+    <div id="eng-c1-modal" class="course-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h4>English C1: Advanced Linguistic Mastery</h4>
+            <p>Attain mastery of the English language through an in-depth exploration of advanced grammar, nuanced idiomatic expressions, and sophisticated communication strategies. This program prepares students for high-level academic and professional demands.</p>
+            <p><strong>Duration:</strong> 16 Weeks (5 hours/week)</p>
+            <span class="coming-soon-label">Coming Soon</span>
+        </div>
+    </div>
+    <div id="ger-a1-modal" class="course-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h4>German A1: Foundational Immersion</h4>
+            <p>Initiate your German language journey with a structured immersion into fundamental linguistic elements. This program covers essential greetings, basic sentence construction, and core vocabulary for immediate practical application in everyday interactions.</p>
+            <p><strong>Duration:</strong> 12 Weeks (4 hours/week)</p>
+            <a href="schedule.html" class="enroll-button-small">Enroll Now</a>
+        </div>
+    </div>
+    <div id="ger-a2-modal" class="course-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h4>German A2: Elementary Structural Development</h4>
+            <p>Expand your German linguistic repertoire with a focus on structural development and contextual vocabulary. This program enables more detailed conversations and effective navigation of common communicative situations.</p>
+            <p><strong>Duration:</strong> 12 Weeks (4 hours/week)</p>
+            <span class="coming-soon-label">Coming Soon</span>
+        </div>
+    </div>
+    <div id="ger-b1-modal" class="course-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h4>German B1: Intermediate Strategic Communication</h4>
+            <p>Achieve communicative independence in German, facilitating effective interaction in most travel and daily life scenarios. This program emphasizes strategic communication and the production of coherent discourse on familiar and personally relevant topics.</p>
+            <p><strong>Duration:</strong> 14 Weeks (4 hours/week)</p>
+            <span class="coming-soon-label">Coming Soon</span>
+        </div>
+    </div>
+    <div id="ger-b2-modal" class="course-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h4>German B2: Upper-Intermediate Advanced Discourse</h4>
+            <p>Attain a robust command of German, enabling engagement in complex discussions and comprehension of specialized texts. This program refines linguistic precision and fosters spontaneous, fluent interaction in diverse contexts.</p>
+            <p><strong>Duration:</strong> 14 Weeks (4 hours/week)</p>
+            <span class="coming-soon-label">Coming Soon</span>
+        </div>
+    </div>
+
+    <footer class="main-footer" style="background-image: url('imagenes/footer_background.jpg');">
+        <div class="container">
+            <p>&copy; 2026 Instituto Wilhelm Wundt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/main_script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', function () {
+                    mainNav.classList.toggle('active');
+                });
+            }
+
+            // Modal functionality
+            const readMoreBtns = document.querySelectorAll('.read-more-btn');
+            readMoreBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const modalId = this.getAttribute('data-modal-id');
+                    const modal = document.getElementById(modalId);
+                    if (modal) {
+                        modal.style.display = 'block';
+                    }
+                });
+            });
+
+            const closeBtns = document.querySelectorAll('.close-btn');
+            closeBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.closest('.course-modal').style.display = 'none';
+                });
+            });
+
+            window.addEventListener('click', function(event) {
+                if (event.target.classList.contains('course-modal')) {
+                    event.target.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

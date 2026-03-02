@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto Wilhelm Wundt - Student Platform</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/main_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .platform-section {
+            padding: 40px 0;
+            text-align: center;
+        }
+        .platform-section h2 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .platform-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 30px;
+            text-align: left;
+        }
+        .platform-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .platform-content ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .platform-content ul li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        .platform-content .platform-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+        .platform-content .platform-link:hover {
+            background-color: #0056b3;
+        }
+        .platform-image {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .platform-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="../willogo.jpg" alt="Instituto Wilhelm Wundt Logo">
+            </div>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="courses.html">Courses</a>
+                <a href="schedule.html">Schedule & Enrollment</a>
+                <a href="student_platform.html" class="active">Student Platform</a>
+                <a href="contact.html">Contact</a>
+                <a href="#" class="enroll-button">Enroll Now</a>
+            </nav>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="platform-section">
+            <h2>Instituto Wilhelm Wundt Student Portal</h2>
+            <div class="platform-image">
+                <img src="Video/plat.jpg" alt="Student Platform Interface">
+            </div>
+            <div class="platform-content">
+                <p>Welcome to the exclusive Student Portal of Instituto Wilhelm Wundt! This advanced digital environment is meticulously designed to provide our esteemed students with unparalleled access to all essential resources, fostering an optimal learning ecosystem for your linguistic and cognitive development.</p>
+                <p>Within this comprehensive portal, you will be able to:</p>
+                <ul>
+                    <li>Access a curated repository of course materials, lecture notes, and supplementary academic exercises.</li>
+                    <li>Submit assignments, track your academic progress, and receive detailed feedback from our faculty.</li>
+                    <li>Engage in scholarly discussions with peers and instructors within a collaborative online forum.</li>
+                    <li>Review your personalized learning trajectory and stay informed about upcoming academic events and deadlines.</li>
+                    <li>Discover an extensive library of additional resources for autonomous study and advanced practice.</li>
+                </ul>
+                <p>Click the link below to access the secure student portal:</p>
+                <a href="#" class="platform-link" target="_blank">Access Student Portal</a>
+                <p style="margin-top: 20px; font-size: 0.9em; color: #888;">(Note: Secure login credentials are required for access.)</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer" style="background-image: url('imagenes/footer_background.jpg');">
+        <div class="container">
+            <p>&copy; 2026 Wil Language Institute. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/main_script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', function () {
+                    mainNav.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

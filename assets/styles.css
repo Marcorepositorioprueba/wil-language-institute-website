@@ -63,7 +63,7 @@ body, html {
 }
 
 .hero-logo {
-    height: 120px; /* Tamaño del logo en la página de inicio */
+    height: 180px; /* Tamaño del logo en la página de inicio */
     margin-top: 40px; /* Añade espacio arriba del logo */
     margin-bottom: 20px; /* Espacio debajo del logo */
 }
@@ -811,5 +811,17 @@ canvas {
     }
     .footer-section {
         margin: 10px 0;
+    }
+}
+@media (max-width: 576px) {
+    .hero-logo {
+        height: 100px; /* Smaller height for mobile */
+        width: auto; /* Maintain aspect ratio */
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1.5rem 1rem 3rem 1rem; /* Reduced horizontal padding for small screens */
     }
 }

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto Wilhelm Wundt - Schedule & Enrollment</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/main_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .schedule-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .schedule-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        .schedule-intro {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+        }
+        .schedule-grid {
+            display: flex;
+            flex-direction: column;
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .schedule-header, .schedule-row {
+            display: grid;
+            grid-template-columns: 3fr 3fr 2fr 2fr;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .schedule-header {
+            background-color: #003366;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+        .schedule-row:last-child {
+            border-bottom: none;
+        }
+        .schedule-row:hover {
+            background-color: #f8f9fa;
+        }
+        .course-options ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .course-options li {
+            margin-bottom: 8px;
+        }
+        .action-btn {
+            text-align: center;
+        }
+        .enrollment-info {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: #f0f8ff;
+            border-left: 5px solid #007bff;
+            border-radius: 5px;
+            text-align: left;
+            max-width: 1000px;
+            margin: 40px auto 0 auto;
+        }
+        .enrollment-info h3 {
+            color: #003366;
+            margin-bottom: 15px;
+        }
+        .enrollment-info p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333;
+        }
+        @media (max-width: 768px) {
+            .schedule-header {
+                display: none;
+            }
+            .schedule-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                text-align: left;
+                padding: 20px;
+            }
+            .schedule-row > div::before {
+                content: attr(data-label);
+                font-weight: bold;
+                display: block;
+                margin-bottom: 5px;
+                text-transform: uppercase;
+                color: #555;
+                font-size: 0.8em;
+            }
+            .action-btn {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="../willogo.jpg" alt="Instituto Wilhelm Wundt Logo">
+            </div>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="courses.html">Courses</a>
+                <a href="schedule.html" class="active">Schedule & Enrollment</a>
+                <a href="student_platform.html">Student Platform</a>
+                <a href="contact.html">Contact</a>
+                <a href="#" class="enroll-button">Enroll Now</a>
+            </nav>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="schedule-section">
+            <h2>Course Schedule & Enrollment</h2>
+            <p class="schedule-intro">
+                Below is the schedule for our currently available courses. To enroll, please select your desired course and click the "Enroll Now" button.
+                <br>For information on our full range of programs, including those coming soon, please visit our <a href="courses.html">Courses page</a>.
+            </p>
+
+            <div class="schedule-grid">
+                <div class="schedule-header">
+                    <div>Course</div>
+                    <div>Schedule Options</div>
+                    <div>Start Date</div>
+                    <div>Action</div>
+                </div>
+
+                <!-- English A1 Course -->
+                <div class="schedule-row">
+                    <div data-label="Course"><strong>English A1: Foundational Principles</strong></div>
+                    <div data-label="Schedule Options" class="course-options">
+                        <ul>
+                            <li>Mon & Wed: 6:00 PM - 8:00 PM</li>
+                            <li>Tue & Thu: 10:00 AM - 12:00 PM</li>
+                            <li>Sat: 9:00 AM - 1:00 PM</li>
+                        </ul>
+                    </div>
+                    <div data-label="Start Date">March 15, 2026</div>
+                    <div data-label="Action" class="action-btn">
+                        <a href="#" class="enroll-button-small">Enroll Now</a>
+                    </div>
+                </div>
+
+                <!-- German A1 Course -->
+                <div class="schedule-row">
+                    <div data-label="Course"><strong>German A1: Foundational Immersion</strong></div>
+                    <div data-label="Schedule Options" class="course-options">
+                        <ul>
+                            <li>Mon & Wed: 10:00 AM - 12:00 PM</li>
+                            <li>Tue & Thu: 6:00 PM - 8:00 PM</li>
+                            <li>Sat: 2:00 PM - 6:00 PM</li>
+                        </ul>
+                    </div>
+                    <div data-label="Start Date">March 16, 2026</div>
+                    <div data-label="Action" class="action-btn">
+                        <a href="#" class="enroll-button-small">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="enrollment-info">
+                <h3>Ready to Start Your Journey?</h3>
+                <p>Secure your spot today and begin a transformative language learning experience with our expert instructors and immersive curriculum. If you have any questions, please don't hesitate to <a href="contact.html">contact us</a>.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer" style="background-image: url('imagenes/footer_background.jpg');">
+        <div class="container">
+            <p>&copy; 2026 Instituto Wilhelm Wundt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/main_script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', function () {
+                    mainNav.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

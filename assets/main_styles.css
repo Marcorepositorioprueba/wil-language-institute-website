@@ -116,12 +116,13 @@ main {
     padding: 20px 0 10px 0;
     text-align: center;
     position: relative;
-    overflow: hidden;
+    /* Removed overflow: hidden; */
     flex-shrink: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    z-index: 999; /* Ensure header is above other content */
 }
 .main-header .container {
     max-width: 1200px;

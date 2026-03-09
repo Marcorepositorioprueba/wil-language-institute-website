@@ -225,15 +225,32 @@ main {
     }
     .main-nav a {
         margin: 10px 0;
-        padding: 15px;
-        width: 80%; /* Make links take up more width */
-        max-width: 300px; /* Limit max width */
+        padding: 15px 20px; /* Increased padding */
+        width: 80%;
+        max-width: 300px;
         text-align: center;
-        border-bottom: 1px solid #eee;
+        border-bottom: none; /* Remove border-bottom */
         color: #003366;
-        background-color: transparent;
-        transform: none;
-        border-radius: 0;
+        background-color: #f0f0f0; /* Light background for links */
+        border-radius: 8px; /* Rounded corners */
+        font-size: 1.2em; /* Larger font size */
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+    }
+    .main-nav a:hover {
+        background-color: #003366; /* Dark blue background on hover */
+        color: white; /* White text on hover */
+        transform: translateY(-3px); /* Lift effect */
+    }
+    .main-nav a.enroll-button { /* Specific styling for enroll button */
+        background-color: #007bff;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    }
+    .main-nav a.enroll-button:hover {
+        background-color: #0056b3;
+        color: white;
     }
     .main-nav a:last-child {
         border-bottom: none;
@@ -243,14 +260,19 @@ main {
     }
     .close-menu {
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: 30px; /* Slightly lower */
+        right: 30px; /* Slightly more from the right */
         background: none;
         border: none;
-        font-size: 2rem;
+        font-size: 2.5rem; /* Larger icon */
         color: #003366;
         cursor: pointer;
-        z-index: 1001; /* Ensure it's above the menu */
+        z-index: 1001;
+        transition: transform 0.2s ease, color 0.2s ease;
+    }
+    .close-menu:hover {
+        transform: rotate(90deg); /* Rotate on hover */
+        color: #B22222; /* Reddish color on hover */
     }
 
     /* Video size adjustment for mobile */

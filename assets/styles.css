@@ -198,35 +198,42 @@ main {
         flex-wrap: nowrap;
     }
     .main-nav {
-        display: none;
-        flex-direction: column;
+        position: fixed; /* Full screen overlay */
+        top: 0;
+        left: 0;
         width: 100%;
+        height: 100%;
         background-color: rgba(255, 255, 255, 0.98); /* More opaque background */
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        padding: 10px 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        z-index: 998; /* Below menu-toggle but above content */
-        transform: translateY(-100%); /* Start off-screen */
+        display: flex; /* Always flex, but hidden by transform */
+        flex-direction: column;
+        justify-content: center; /* Center links vertically */
+        align-items: center; /* Center links horizontally */
+        z-index: 1000; /* Ensure it's above everything */
+        transform: translateX(100%); /* Hide off-screen to the right */
         transition: transform 0.3s ease-out; /* Smooth transition */
     }
     .main-nav.active {
+        transform: translateX(0); /* Slide in from the right */
+    }
+    .main-nav .nav-links {
         display: flex;
-        transform: translateY(0);
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
     .main-nav a {
         margin: 10px 0;
         padding: 15px;
-        width: 100%;
+        width: 80%; /* Make links take up more width */
+        max-width: 300px; /* Limit max width */
         text-align: center;
         border-bottom: 1px solid #eee;
         color: #003366;
-        background-color: transparent; /* Eliminar fondo de botón en móvil */
-        transform: none; /* Eliminar efecto de elevación */
-        border-radius: 0; /* Eliminar bordes redondeados */
+        background-color: transparent;
+        transform: none;
+        border-radius: 0;
     }
     .main-nav a:last-child {
         border-bottom: none;
@@ -234,14 +241,25 @@ main {
     .menu-toggle {
         display: block;
     }
+    .close-menu {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: #003366;
+        cursor: pointer;
+        z-index: 1001; /* Ensure it's above the menu */
+    }
 
     /* Video size adjustment for mobile */
     .video-container {
-        max-width: 100% !important; /* Ensure it takes full width */
-        margin: 20px auto !important; /* Adjust margin */
+        max-width: 100% !important;
+        margin: 20px auto !important;
     }
     .video-container video {
-        width: 100%; /* Make the video element itself take full width */
+        width: 100%;
         height: auto;
     }
 }

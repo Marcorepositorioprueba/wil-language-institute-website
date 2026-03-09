@@ -5,10 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instituto Wilhelm Wundt - Courses</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="assets/main_styles.css">
+    <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+    .featured-courses-section {
+        text-align: center;
+        padding-bottom: 40px;
+        border-bottom: 2px solid #eee;
+        margin-bottom: 40px;
+    }
+    .featured-courses-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .featured-course {
+        text-align: center;
+    }
+    .featured-course .flag {
+        width: 100px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .syllabus-list {
+        list-style-type: none;
+        padding: 0;
+        text-align: left;
+        margin-top: 20px;
+    }
+    .syllabus-list li {
+        margin-bottom: 10px;
+        font-size: 1em;
+        padding-left: 1.5em;
+        position: relative;
+    }
+    .syllabus-list li::before {
+        content: '✓';
+        color: #28a745;
+        position: absolute;
+        left: 0;
+    }
+    @media (max-width: 768px) {
+        .featured-courses-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Modal Styles */
+    .course-modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1000; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+        padding-top: 60px;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto; /* 15% from the top and centered */
+        padding: 30px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+        max-width: 700px;
+        border-radius: 10px;
+        position: relative;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .close-btn {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close-btn:hover,
+    .close-btn:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    </style>
 </head>
-<body>
+<body style="background-image: url('imagenes/3.jpg');">
     <header class="main-header">
         <div class="container">
             <div class="logo">
@@ -21,7 +108,7 @@
                 <a href="schedule.html">Schedule & Enrollment</a>
                 <a href="student_platform.html">Student Platform</a>
                 <a href="contact.html">Contact</a>
-                <a href="#" class="enroll-button">Enroll Now</a>
+                <a href="enrollment_form.html" class="enroll-button">Enroll Now</a>
             </nav>
             <button class="menu-toggle" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
@@ -29,21 +116,40 @@
         </div>
     </header>
 
-    <main class="container">
+    <main class="main-content">
+        <section class="featured-courses-section">
+            <h2>Our Opening Courses</h2>
+            <p>Start your language journey with our foundational courses in English and German.</p>
+            <div class="featured-courses-grid">
+                <div class="featured-course">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="UK Flag" class="flag">
+                    <div class="course-card">
+                        <h4>English A1: Foundational Principles</h4>
+                        <div class="course-actions">
+                            <button class="read-more-btn" data-modal-id="eng-a1-syllabus-modal">View Syllabus</button>
+                            <a href="enrollment_form.html?course=english_a1" class="enroll-button-small">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="featured-course">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg" alt="Germany Flag" class="flag">
+                    <div class="course-card">
+                        <h4>German A1: Foundational Immersion</h4>
+                        <div class="course-actions">
+                            <button class="read-more-btn" data-modal-id="ger-a1-syllabus-modal">View Syllabus</button>
+                            <a href="enrollment_form.html?course=german_a1" class="enroll-button-small">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="courses-section">
             <h2>Our Comprehensive Language Programs</h2>
 
             <div class="language-category">
                 <h3>English Language Programs</h3>
                 <div class="course-list">
-                    <!-- English A1 -->
-                    <div class="course-card">
-                        <h4>English A1: Foundational Principles</h4>
-                        <div class="course-actions">
-                            <button class="read-more-btn" data-modal-id="eng-a1-modal">Read More</button>
-                            <a href="schedule.html" class="enroll-button-small">Enroll Now</a>
-                        </div>
-                    </div>
                     <!-- English A2 -->
                     <div class="course-card">
                         <h4>English A2: Elementary Cognitive Expansion</h4>
@@ -82,14 +188,6 @@
             <div class="language-category">
                 <h3>German Language Programs</h3>
                 <div class="course-list">
-                    <!-- German A1 -->
-                    <div class="course-card">
-                        <h4>German A1: Foundational Immersion</h4>
-                        <div class="course-actions">
-                            <button class="read-more-btn" data-modal-id="ger-a1-modal">Read More</button>
-                            <a href="schedule.html" class="enroll-button-small">Enroll Now</a>
-                        </div>
-                    </div>
                     <!-- German A2 -->
                     <div class="course-card">
                         <h4>German A2: Elementary Structural Development</h4>
@@ -120,12 +218,41 @@
     </main>
 
     <!-- Modals -->
-    <div id="eng-a1-modal" class="course-modal">
+    <div id="eng-a1-syllabus-modal" class="course-modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
-            <h4>English A1: Foundational Principles</h4>
-            <p>Embark on your English language journey with a scientifically structured curriculum focusing on fundamental grammar, essential vocabulary, and practical conversational skills. This program lays the cognitive groundwork for effective communication in everyday contexts.</p>
-            <p><strong>Duration:</strong> 12 Weeks (4 hours/week)</p>
+            <h4>English A1: Basic Syllabus (8 Sessions)</h4>
+            <ul class="syllabus-list">
+                <li><strong>Sessions 1-2:</strong> Introduction, Greetings, Alphabet, Basic Verbs (to be), Personal Pronouns.</li>
+                <li><strong>Sessions 3-4:</strong> Nouns (singular/plural), Articles (a/an), Simple Sentences, Numbers 1-10.</li>
+                <li><strong>Sessions 5-6:</strong> Present Simple (affirmative, negative, questions), Daily Routines, Telling Time.</li>
+                <li><strong>Sessions 7-8:</strong> Describing People and Objects, Prepositions of Place (in, on, under), Final Review & Simple Conversation.</li>
+            </ul>
+            <p><strong>What to expect upon completion:</strong></p>
+            <ul class="syllabus-list">
+                <li>Introduce yourself and others.</li>
+                <li>Understand and use basic greetings and farewells.</li>
+                <li>Form simple sentences using the verb 'to be' and personal pronouns.</li>
+                <li>Ask and answer basic questions in the Present Simple tense.</li>
+                <li>Describe daily routines and common objects.</li>
+                <li>Understand and use numbers 1-10 and tell time.</li>
+                <li>Engage in very simple conversations about familiar topics.</li>
+            </ul>
+            <a href="schedule.html" class="enroll-button-small">Enroll Now</a>
+        </div>
+    </div>
+    <div id="ger-a1-syllabus-modal" class="course-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h4>German A1: Basic Syllabus</h4>
+            <ul class="syllabus-list">
+                <li><strong>Weeks 1-2:</strong> Introduction, Alphabet, Greetings, Verbs 'sein'/'haben', Pronouns.</li>
+                <li><strong>Weeks 3-4:</strong> Nouns (gender/plural), Articles (der/die/das), Simple Sentences.</li>
+                <li><strong>Weeks 5-6:</strong> Present Tense, W-Questions & Yes/No Questions, Numbers & Time.</li>
+                <li><strong>Weeks 7-8:</strong> Prepositions of Place, Describing People, Mid-term review.</li>
+                <li><strong>Weeks 9-10:</strong> Modal Verbs (können), Likes/Dislikes, Food & Drink vocabulary.</li>
+                <li><strong>Weeks 11-12:</strong> Final Project: "About Me" presentation. Final Review.</li>
+            </ul>
             <a href="schedule.html" class="enroll-button-small">Enroll Now</a>
         </div>
     </div>
@@ -165,15 +292,6 @@
             <span class="coming-soon-label">Coming Soon</span>
         </div>
     </div>
-    <div id="ger-a1-modal" class="course-modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h4>German A1: Foundational Immersion</h4>
-            <p>Initiate your German language journey with a structured immersion into fundamental linguistic elements. This program covers essential greetings, basic sentence construction, and core vocabulary for immediate practical application in everyday interactions.</p>
-            <p><strong>Duration:</strong> 12 Weeks (4 hours/week)</p>
-            <a href="schedule.html" class="enroll-button-small">Enroll Now</a>
-        </div>
-    </div>
     <div id="ger-a2-modal" class="course-modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
@@ -202,19 +320,29 @@
         </div>
     </div>
 
-    <footer class="main-footer" style="background-image: url('imagenes/footer_background.jpg');">
+    <footer class="main-footer" style="background-image: url('imagenes/2.jpg');">
         <div class="container">
             <p>&copy; 2026 Instituto Wilhelm Wundt. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="assets/main_script.js"></script>
+    <div class="social-ribbon facebook-ribbon">
+        <a href="https://www.facebook.com/InstitutoWilhelmWundt" target="_blank" aria-label="Visit our Facebook page">
+            <i class="fab fa-facebook-f"></i>
+            <span>Facebook</span>
+        </a>
+    </div>
+    <div class="social-ribbon twitter-ribbon">
+        <a href="https://twitter.com/IW_Wundt" target="_blank" aria-label="Visit our X (Twitter) page">
+            <i class="fab fa-twitter"></i>
+            <span>X</span>
+        </a>
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Mobile menu toggle
             const menuToggle = document.querySelector('.menu-toggle');
             const mainNav = document.querySelector('.main-nav');
+
             if (menuToggle && mainNav) {
                 menuToggle.addEventListener('click', function () {
                     mainNav.classList.toggle('active');

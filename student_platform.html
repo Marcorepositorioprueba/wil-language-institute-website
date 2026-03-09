@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instituto Wilhelm Wundt - Student Platform</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="assets/main_styles.css"> <!-- Ensure this is linked -->
+    <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<body>
+<body style="background-image: url('imagenes/5.jpg');">
     <header class="main-header">
         <div class="container">
             <div class="logo">
@@ -21,7 +21,7 @@
                 <a href="schedule.html">Schedule & Enrollment</a>
                 <a href="student_platform.html" class="active">Student Platform</a>
                 <a href="contact.html">Contact</a>
-                <a href="#" class="enroll-button">Enroll Now</a>
+                <a href="enrollment_form.html" class="enroll-button">Enroll Now</a>
             </nav>
             <button class="menu-toggle" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
@@ -52,14 +52,24 @@
         </section>
     </main>
 
-    <footer class="main-footer" style="background-image: url('imagenes/footer_background.jpg');">
+    <footer class="main-footer" style="background-image: url('imagenes/5.jpg');">
         <div class="container">
-            <p>&copy; 2026 Wil Language Institute. All rights reserved.</p>
+            <p>&copy; 2026 Instituto Wilhelm Wundt. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="assets/main_script.js"></script>
+    <div class="social-ribbon facebook-ribbon">
+        <a href="https://www.facebook.com/InstitutoWilhelmWundt" target="_blank" aria-label="Visit our Facebook page">
+            <i class="fab fa-facebook-f"></i>
+            <span>Facebook</span>
+        </a>
+    </div>
+    <div class="social-ribbon twitter-ribbon">
+        <a href="https://twitter.com/IW_Wundt" target="_blank" aria-label="Visit our X (Twitter) page">
+            <i class="fab fa-twitter"></i>
+            <span>X</span>
+        </a>
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const menuToggle = document.querySelector('.menu-toggle');
